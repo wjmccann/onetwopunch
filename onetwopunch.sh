@@ -111,8 +111,8 @@ while read ip; do
         if [[ ! -z $ports ]]; then 
             # nmap follows up
             echo -e "${GREEN}[*]${RESET} TCP ports for nmap to scan: $ports"
-            echo -e "${BLUE}[+]${RESET} nmap -e ${iface} ${nmap_opt} -oX ${log_dir}/ndir/${ip}-tcp.xml -oG ${log_dir}/ndir/${ip}-tcp.grep -p ${ports} ${ip}"
-            nmap -e ${iface} ${nmap_opt} -oX ${log_dir}/ndir/${ip}-tcp.xml -oG ${log_dir}/ndir/${ip}-tcp.grep -p ${ports} ${ip}
+            echo -e "${BLUE}[+]${RESET} nmap -e ${iface} ${nmap_opt} -oN ${log_dir}/ndir/${ip}-tcp.txt -oX ${log_dir}/ndir/${ip}-tcp.xml -oG ${log_dir}/ndir/${ip}-tcp.grep -p ${ports} ${ip}"
+            nmap -e ${iface} ${nmap_opt} -oN ${log_dir}/ndir/${ip}-tcp.txt -oX ${log_dir}/ndir/${ip}-tcp.xml -oG ${log_dir}/ndir/${ip}-tcp.grep -p ${ports} ${ip}
         else
             echo -e "${RED}[!]${RESET} No TCP ports found"
         fi
@@ -127,8 +127,8 @@ while read ip; do
         if [[ ! -z $ports ]]; then
             # nmap follows up
             echo -e "${GREEN}[*]${RESET} UDP ports for nmap to scan: $ports"
-            echo -e "${BLUE}[+]${RESET} nmap -e ${iface} ${nmap_opt} -sU -oX ${log_dir}/ndir/${ip}-udp.xml -oG ${log_dir}/ndir/${ip}-udp.grep -p ${ports} ${ip}"
-            nmap -e ${iface} ${nmap_opt} -sU -oX ${log_dir}/ndir/${ip}-udp.xml -oG ${log_dir}/ndir/${ip}-udp.grep -p ${ports} ${ip}
+            echo -e "${BLUE}[+]${RESET} nmap -e ${iface} ${nmap_opt} -sU -oN ${log_dir}/ndir/${ip}-udp.txt -oX ${log_dir}/ndir/${ip}-udp.xml -oG ${log_dir}/ndir/${ip}-udp.grep -p ${ports} ${ip}"
+            nmap -e ${iface} ${nmap_opt} -sU -oN ${log_dir}/ndir/${ip}-udp.txt -oX ${log_dir}/ndir/${ip}-udp.xml -oG ${log_dir}/ndir/${ip}-udp.grep -p ${ports} ${ip}
         else
             echo -e "${RED}[!]${RESET} No UDP ports found"
         fi
